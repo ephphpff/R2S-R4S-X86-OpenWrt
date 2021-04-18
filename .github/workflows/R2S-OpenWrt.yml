@@ -136,12 +136,12 @@ jobs:
         path: ./artifact/
 
     - name: Create release
-      id: create_release
       uses: svenstaro/upload-release-action@v2
       with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./release/*
-          tag: ${{env.strDate}}
-          file_glob: true
-          overwrite: true
-          release_name: ${{env.strDate}} 自动发布
+        name: OpenWRT-R2S-R4S-X86-21.02
+        allowUpdates: true
+        tag: 2102
+        commit: master
+        replacesArtifacts: true
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: ./artifact/*.zip
